@@ -1,0 +1,19 @@
+CREATE TABLE product(
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  price REAL NOT NULL,
+  updatedAt INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM product ORDER BY updatedAt DESC;
+
+selectById:
+SELECT * FROM product WHERE id = ?;
+
+upsert:
+INSERT OR REPLACE INTO product(id, name, price, updatedAt)
+VALUES (?, ?, ?, ?);
+
+deleteAll:
+DELETE FROM product;
